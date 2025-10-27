@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MoDrones — Drones for Agriculture, Inspection & Public Safety</title>
+  <meta name="description" content="MoDrones builds and deploys reliable drones for agriculture spraying, mapping & surveying, infrastructure inspection, and public safety across Andhra Pradesh and India.">
+  <meta property="og:title" content="MoDrones">
+  <meta property="og:description" content="Reliable drones & services for farms, infrastructure and safety.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/logo.jpg">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0e1116;--card:#141925;--ink:#eef2ff;--muted:#b7c3d7;
+      --brand:#59d3a0;--brand-2:#18a57a;--accent:#7aa5ff;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 14px;--radius-sm:10px;--maxw:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0c0f14 0%, #0e1116 100%);color:var(--ink);font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;line-height:1.5}
+    a{color:var(--brand)} a:hover{color:var(--brand-2)}
+    header{position:sticky;top:0;z-index:100;backdrop-filter: blur(8px);background:rgba(14,17,22,.7);border-bottom:1px solid rgba(255,255,255,.06)}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+    .brand img{height:36px;width:36px;border-radius:8px;object-fit:cover}
+    .brand b{font-weight:700;letter-spacing:.3px}
+    .navlinks{display:flex;gap:16px;align-items:center}
+    .navlinks a{color:var(--muted);text-decoration:none;font-weight:500}
+    .navlinks a:hover{color:var(--ink)}
+    .cta{background:var(--brand);color:#0b1220;border:none;padding:10px 16px;border-radius:999px;font-weight:700;box-shadow:var(--shadow);text-decoration:none}
+    .cta:hover{background:var(--brand-2)}
+    .burger{display:none;cursor:pointer}
+    .lang{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(255,255,255,.2);padding:8px 10px;border-radius:999px;font-weight:600;text-decoration:none;color:var(--ink);background:transparent}
+    .lang small{opacity:.8}
+    .hero{display:grid;grid-template-columns: 1.1fr .9fr;gap:30px;align-items:center;padding:64px 0}
+    .tag{display:inline-flex;gap:8px;align-items:center;background:rgba(89,211,160,.12);color:var(--brand);border:1px solid rgba(89,211,160,.35);padding:6px 10px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:.3px;text-transform:uppercase}
+    h1{font-size:44px;line-height:1.15;margin:14px 0 8px}
+    .lead{font-size:18px;color:var(--muted);margin:0 0 22px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .hero .visual{position:relative;height:380px;border-radius:var(--radius);overflow:hidden}
+    .grid{display:grid;gap:18px}
+    .section{padding:42px 0}
+    .section h2{font-size:28px;margin:0 0 12px}
+    .muted{color:var(--muted)}
+    .sectors{display:grid;grid-template-columns: repeat(4,1fr);gap:16px}
+    .tile{padding:18px;border-radius:var(--radius-sm);border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015))}
+    .tile h3{margin:8px 0 6px;font-size:16px}
+    .cards{display:grid;grid-template-columns: repeat(3,1fr);gap:18px}
+    .p{padding:18px}
+    .pill{display:inline-block;font-size:12px;color:#0b1220;background:var(--accent);padding:4px 10px;border-radius:999px;font-weight:700}
+    .list{margin:10px 0 0;padding:0 0 0 18px;color:var(--muted)}
+    .why{display:grid;grid-template-columns: repeat(3,1fr);gap:18px}
+    .why .tile p{margin:6px 0 0}
+    .banner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center;padding:18px;border:2px solid rgba(122,165,255,.3)}
+    footer{border-top:1px solid rgba(255,255,255,.08);padding:26px 0 42px;color:var(--muted)}
+    .cols{display:grid;grid-template-columns: 1.2fr .8fr .8fr;gap:18px}
+    .small{font-size:13px;color:var(--muted)}
+    form{display:grid;gap:10px}
+    input, textarea{background:#0b1220;border:1px solid rgba(255,255,255,.12);color:var(--ink);padding:12px;border-radius:10px}
+    input::placeholder, textarea::placeholder{color:#7b8699}
+    button{cursor:pointer}
+    .te{display:none}
+    body.lang-te .en{display:none}
+    body.lang-te .te{display:inline}
+    @media (max-width: 980px){
+      .hero{grid-template-columns:1fr}
+      .sectors{grid-template-columns: repeat(2,1fr)}
+      .cards{grid-template-columns:1fr}
+      .why{grid-template-columns:1fr}
+      .cols{grid-template-columns:1fr}
+      .burger{display:block}
+      .navlinks{display:none;flex-direction:column;gap:12px;padding:14px 0}
+      .navlinks.open{display:flex}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home">
+      <img src="assets/logo.jpg" alt="MoDrones logo" />
+      <b>MoDrones</b>
+    </a>
+    <nav>
+      <div class="burger" id="burger" aria-label="Open menu" aria-expanded="false">☰</div>
+      <div class="navlinks" id="navlinks">
+        <a href="#sectors"><span class="en">Sectors</span><span class="te">రంగాలు</span></a>
+        <a href="#products"><span class="en">Products</span><span class="te">ఉత్పత్తులు</span></a>
+        <a href="#services"><span class="en">Services</span><span class="te">సేవలు</span></a>
+        <a href="#about"><span class="en">About</span><span class="te">మా గురించి</span></a>
+        <a href="#contact" class="cta"><span class="en">Get a Quote</span><span class="te">కోట్ కోరండి</span></a>
+        <button class="lang" id="langBtn" type="button" aria-label="Switch language"><span class="en">EN</span> | <small>TE</small><span class="te">TE</span> | <small>EN</small></button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+  <section class="wrap hero">
+    <div>
+      <span class="tag"><span class="en">Andhra Pradesh • India</span><span class="te">ఆంధ్రప్రదేశ్ • భారత్</span></span>
+      <h1>
+        <span class="en">Reliable drones for farms, infrastructure and public safety</span>
+        <span class="te">రైతులకు, మౌలిక వసతుల తనిఖీకి, ప్రజా భద్రతకు నమ్మకమైన డ్రోన్లు</span>
+      </h1>
+      <p class="small" style="margin:6px 0 14px;font-weight:600">
+        <span class="en">Aerial Solutions for India</span>
+        <span class="te">భారతానికి వైమానిక పరిష్కారాలు</span>
+      </p>
+      <p class="lead">
+        <span class="en">MoDrones designs, assembles and deploys drones for <b>agri spraying & mapping</b>, <b>infrastructure inspection</b>, and <b>emergency response</b>. Built with trusted components, serviced locally.</span>
+        <span class="te">మో డ్రోన్స్ <b>వ్యవసాయ స్ప్రేయింగ్ & మ్యాపింగ్</b>, <b>మౌలిక వసతుల తనిఖీలు</b>, <b>అత్యవసర స్పందన</b> కోసం డ్రోన్లను డిజైన్ చేసి, అసెంబుల్ చేసి, అమలు చేస్తుంది. నమ్మకమైన భాగాలతో నిర్మించి స్థానికంగా సేవలు అందిస్తాము.</span>
+      </p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="cta" href="#contact"><span class="en">Talk to sales</span><span class="te">సేల్స్‌తో మాట్లాడండి</span></a>
+        <a class="cta" style="background:transparent;border:1px solid rgba(255,255,255,.2);color:var(--ink)" href="#products"><span class="en">See products</span><span class="te">ఉత్పత్తులు చూడండి</span></a>
+      </div>
+      <p class="small" style="margin-top:10px"><span class="en">Import • Assemble • Integrate • Train • Support</span><span class="te">ఇంపోర్ట్ • అసెంబుల్ • ఇంటిగ్రేట్ • ట్రెయిన్ • సపోర్ట్</span></p>
+    </div>
+    <div class="visual card">
+      <!-- Decorative hero visual -->
+      <svg viewBox="0 0 800 480" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#59d3a0"/>
+            <stop offset="1" stop-color="#7aa5ff"/>
+          </linearGradient>
+          <radialGradient id="glow" cx="50%" cy="30%" r="60%">
+            <stop offset="0%" stop-color="rgba(122,165,255,.45)"/>
+            <stop offset="100%" stop-color="rgba(122,165,255,0)"/>
+          </radialGradient>
+        </defs>
+        <rect x="0" y="0" width="800" height="480" fill="#0b1220"/>
+        <circle cx="560" cy="120" r="180" fill="url(#glow)"/>
+        <g transform="translate(180,180) scale(1.2)">
+          <rect x="140" y="60" width="120" height="36" rx="10" fill="url(#g)"/>
+          <rect x="120" y="70" width="20" height="16" rx="8" fill="#141925"/>
+          <rect x="260" y="70" width="20" height="16" rx="8" fill="#141925"/>
+          <line x1="200" y1="78" x2="90" y2="10" stroke="#59d3a0" stroke-width="6"/>
+          <line x1="200" y1="78" x2="310" y2="10" stroke="#59d3a0" stroke-width="6"/>
+          <line x1="200" y1="78" x2="90" y2="150" stroke="#7aa5ff" stroke-width="6"/>
+          <line x1="200" y1="78" x2="310" y2="150" stroke="#7aa5ff" stroke-width="6"/>
+          <circle cx="90" cy="10" r="24" fill="#0b1220" stroke="url(#g)" stroke-width="8"/>
+          <circle cx="310" cy="10" r="24" fill="#0b1220" stroke="url(#g)" stroke-width="8"/>
+          <circle cx="90" cy="150" r="24" fill="#0b1220" stroke="url(#g)" stroke-width="8"/>
+          <circle cx="310" cy="150" r="24" fill="#0b1220" stroke="url(#g)" stroke-width="8"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <section id="sectors" class="wrap section">
+    <h2><span class="en">Where we fly</span><span class="te">మా సేవలు అందే రంగాలు</span></h2>
+    <p class="muted"><span class="en">Impact across critical sectors in AP & India.</span><span class="te">ఏపీ & భారతదేశంలోని కీలక రంగాల్లో ప్రభావం.</span></p>
+    <div class="sectors">
+      <div class="tile">
+        <span class="pill"><span class="en">Agriculture</span><span class="te">వ్యవసాయం</span></span>
+        <h3><span class="en">Precision spraying & mapping</span><span class="te">సూక్ష్మ స్ప్రేయింగ్ & మ్యాపింగ్</span></h3>
+        <p class="muted"><span class="en">Reduce pesticide & water usage by up to 30% with uniform coverage and NDVI field maps.</span><span class="te">సమాన కవరేజ్, NDVI ఫీల్డ్ మ్యాప్స్‌తో పురుగుమందులు మరియు నీటి వినియోగాన్ని 30% వరకు తగ్గించండి.</span></p>
+      </div>
+      <div class="tile">
+        <span class="pill"><span class="en">Infrastructure</span><span class="te">మౌలిక వసతులు</span></span>
+        <h3><span class="en">Bridge & powerline inspection</span><span class="te">వంతెనలు & పవర్‌లైన్ తనిఖీలు</span></h3>
+        <p class="muted"><span class="en">High-res imagery and thermal scans for faster, safer maintenance with digital twins.</span><span class="te">డిజిటల్ ట్విన్స్‌తో వేగవంతమైన, సురక్షిత మెయింటెనెన్స్ కోసం హై-రెజ్ చిత్రాలు, థర్మల్ స్కాన్లు.</span></p>
+      </div>
+      <div class="tile">
+        <span class="pill"><span class="en">Public Safety</span><span class="te">ప్రజా భద్రత</span></span>
+        <h3><span class="en">Search & emergency response</span><span class="te">శోధన & అత్యవసర స్పందన</span></h3>
+        <p class="muted"><span class="en">Rapid situational awareness, night ops, and perimeter security with live streaming.</span><span class="te">తక్షణ పరిస్థితి అవగాహన, రాత్రి ఆపరేషన్లు, లైవ్ స్ట్రీమింగ్‌తో భద్రత.</span></p>
+      </div>
+      <div class="tile">
+        <span class="pill"><span class="en">Surveying</span><span class="te">సర్వేయింగ్</span></span>
+        <h3><span class="en">Mapping & volumetrics</span><span class="te">మ్యాపింగ్ & వాల్యూమెట్రిక్స్</span></h3>
+        <p class="muted"><span class="en">RTK/PPK workflows for cm-level accuracy, stockpile volumes and land records.</span><span class="te">సెం.స్థాయి ఖచ్చితత్వానికి RTK/PPK వర్క్‌ఫ్లోలు, స్టాక్‌పైల్ వాల్యూమ్స్ & భూ రికార్డులు.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="products" class="wrap section">
+    <h2><span class="en">Products</span><span class="te">ఉత్పత్తులు</span></h2>
+    <div class="cards">
+      <article class="card p">
+        <div class="pill">MoD-Agri 16</div>
+        <h3><span class="en">16L Agriculture Sprayer Drone</span><span class="te">16 లీటర్ల వ్యవసాయ స్ప్రేయర్ డ్రోన్</span></h3>
+        <ul class="list">
+          <li><span class="en">16-litre payload • 8–10 m spray width</span><span class="te">16 లీటర్లు • 8–10 మీ. స్ప్రే వెడల్పు</span></li>
+          <li><span class="en">Obstacle sensing • Auto terrain follow</span><span class="te">అడ్డంకుల గుర్తింపు • ఆటో టెర్రైన్ ఫాలో</span></li>
+          <li><span class="en">Foldable frame • IP rated electronics</span><span class="te">మడిచే ఫ్రేమ్ • IP రేటెడ్ ఎలక్ట్రానిక్స్</span></li>
+        </ul>
+      </article>
+      <article class="card p">
+        <div class="pill">MoD-Survey X</div>
+        <h3><span class="en">Mapping & Survey Drone (RTK)</span><span class="te">మ్యాపింగ్ & సర్వే డ్రోన్ (RTK)</span></h3>
+        <ul class="list">
+          <li><span class="en">20–48 MP camera • RTK/PPK ready</span><span class="te">20–48 MP కెమెరా • RTK/PPK సిద్ధంగా</span></li>
+          <li><span class="en">45–60 min endurance • Swappable batteries</span><span class="te">45–60 నిమిషాల ఎండ్యురెన్స్ • మార్చుకునే బ్యాటరీలు</span></li>
+          <li><span class="en">Pix/UGCS compatible mission planning</span><span class="te">Pix/UGCS అనుకూల మిషన్ ప్లానింగ్</span></li>
+        </ul>
+      </article>
+      <article class="card p">
+        <div class="pill">MoD-Inspect Pro</div>
+        <h3><span class="en">Inspection & Thermal</span><span class="te">ఇన్‌స్పెక్షన్ & థర్మల్</span></h3>
+        <ul class="list">
+          <li><span class="en">Dual gimbal: 4K zoom + 640p thermal</span><span class="te">డ్యూయల్ గింబల్: 4K జూమ్ + 640p థర్మల్</span></li>
+          <li><span class="en">Live stream to command center</span><span class="te">కమాండ్ సెంటర్‌కు లైవ్ స్ట్రీమ్</span></li>
+          <li><span class="en">SDK for custom alerts & AI models</span><span class="te">కస్టమ్ అలర్ట్స్ & AI మోడల్స్‌కు SDK</span></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="services" class="wrap section">
+    <h2><span class="en">Services</span><span class="te">సేవలు</span></h2>
+    <div class="why">
+      <div class="tile">
+        <h3><span class="en">Turnkey Projects</span><span class="te">టర్న్‌కీ ప్రాజెక్టులు</span></h3>
+        <p><span class="en">From import & assembly to deployment, manuals and compliance documentation.</span><span class="te">ఇంపోర్ట్ & అసెంబ్లీ నుంచి డిప్లాయ్‌మెంట్ వరకు, మాన్యువల్స్ మరియు కంప్లైయెన్స్ డాక్యుమెంటేషన్.</span></p>
+      </div>
+      <div class="tile">
+        <h3><span class="en">Pilot Training</span><span class="te">పైలట్ శిక్షణ</span></h3>
+        <p><span class="en">DGCA-aligned flight safety, maintenance, and mission planning workshops.</span><span class="te">DGCA ప్రమాణాలకు అనుగుణంగా ఫ్లైట్ సేఫ్టీ, మెయింటెనెన్స్, మిషన్ ప్లానింగ్ వర్క్‌షాప్స్.</span></p>
+      </div>
+      <div class="tile">
+        <h3><span class="en">AMC & Spares</span><span class="te">AMC & స్పేర్స్</span></h3>
+        <p><span class="en">Annual maintenance, battery health checks, and priority spares availability.</span><span class="te">ఏడాదికి మెయింటెనెన్స్, బ్యాటరీ హెల్త్ చెక్స్, ప్రాధాన్య స్పేర్స్ లభ్యత.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="banner card">
+      <div>
+        <h3 style="margin:0"><span class="en">Need a demo flight in your district?</span><span class="te">మీ జిల్లాలో డెమో ఫ్లైట్ కావాలా?</span></h3>
+        <p class="muted" style="margin:4px 0 0"><span class="en">We can run a field demo for your department or FPO.</span><span class="te">మీ శాఖ లేదా FPO కోసం మైదానంలో డెమో నిర్వహించగలం.</span></p>
+      </div>
+      <a class="cta" href="#contact"><span class="en">Book a demo</span><span class="te">డెమో బుక్ చేయండి</span></a>
+    </div>
+  </section>
+
+  <section id="about" class="wrap section">
+    <h2><span class="en">About MoDrones</span><span class="te">MoDrones గురించి</span></h2>
+    <p class="muted">
+      <span class="en">Founded in 2025, MoDrones is on a mission to make aerial technology practical and affordable for farmers, engineers and first responders. We partner with trusted suppliers, assemble locally, and back every system with training and service.</span>
+      <span class="te">2025లో స్థాపించబడిన MoDrones, రైతులు, ఇంజనీర్లు, ఫస్ట్ రెస్పాండర్లకు డ్రోన్ సాంకేతికతను మరింత ఉపయోగకరంగా మరియు అందుబాటులోకి తీసుకురావడం మా లక్ష్యం. విశ్వసనీయ సరఫరాదారులతో భాగస్వామ్యం చేసి, లోకల్‌గా అసెంబుల్ చేసి, ప్రతి సిస్టమ్‌కు శిక్షణ & సేవలతో మద్దతు ఇస్తాము.</span>
+    </p>
+  </section>
+
+  <section id="contact" class="wrap section">
+    <h2><span class="en">Contact</span><span class="te">సంప్రదించండి</span></h2>
+    <div class="grid" style="grid-template-columns:1.2fr .8fr">
+      <form class="card p" onsubmit="sendMail(event)">
+        <label><span class="en">Name</span><span class="te">పేరు</span>
+          <input type="text" id="name" placeholder="Your name / మీ పేరు" required>
+        </label>
+        <label><span class="en">Email</span><span class="te">ఈమెయిల్</span>
+          <input type="email" id="email" placeholder="you@example.com" required>
+        </label>
+        <label><span class="en">Message</span><span class="te">సందేశం</span>
+          <textarea id="message" rows="5" placeholder="Tell us about your use case… / మీ అవసరాన్ని వ్రాయండి…" required></textarea>
+        </label>
+        <button class="cta" type="submit"><span class="en">Send</span><span class="te">పంపండి</span></button>
+        <p class="small"><span class="en">This form opens your email app to send us a message.</span><span class="te">ఈ ఫారమ్ మీ ఈమెయిల్ యాప్‌ను తెరుచుకుంటుంది.</span></p>
+      </form>
+      <div class="card p">
+        <h3><span class="en">Reach us</span><span class="te">మమ్మల్ని సంప్రదించండి</span></h3>
+        <p class="muted" style="margin:0"><span class="en">Email:</span> <a href="mailto:shaik.moin@outlook.com">shaik.moin@outlook.com</a></p>
+        <p class="muted" style="margin:0"><span class="en">Phone:</span><span class="te">ఫోన్:</span> <a href="tel:+919160245527">+91 91602 45527</a> · <a href="tel:+971545761786">+971 54 576 1786</a></p>
+        <p class="muted" style="margin:0"><span class="en">WhatsApp:</span><span class="te">వాట్సాప్:</span> <a href="https://wa.me/919160245527" target="_blank" rel="noopener">IN: +91 91602 45527</a> · <a href="https://wa.me/971545761786" target="_blank" rel="noopener">UAE: +971 54 576 1786</a></p>
+        <p class="muted"><span class="en">Location:</span><span class="te">స్థానం:</span> Vijayawada / Amaravati, Andhra Pradesh</p>
+        <p class="small"><span class="en">For government enquiries & tenders, ask for our vendor profile and compliance docs.</span><span class="te">ప్రభుత్వ విచారణలు & టెండర్లకు మా వెండర్ ప్రొఫైల్ మరియు కంప్లైయెన్స్ డాక్యుమెంట్స్‌ను అడగండి.</span></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap cols">
+    <div>
+      <a class="brand" href="#home">
+        <img src="assets/logo.jpg" alt="MoDrones logo small"/>
+        <b>MoDrones</b>
+      </a>
+      <p class="small">© <span id="y"></span> MoDrones. <span class="en">All rights reserved.</span><span class="te">అన్ని హక్కులు సెలవు.</span></p>
+    </div>
+    <div>
+      <p class="small"><b><span class="en">Quick links</span><span class="te">త్వరిత లింకులు</span></b></p>
+      <p class="small"><a href="#sectors"><span class="en">Sectors</span><span class="te">రంగాలు</span></a> • <a href="#products"><span class="en">Products</span><span class="te">ఉత్పత్తులు</span></a> • <a href="#services"><span class="en">Services</span><span class="te">సేవలు</span></a></p>
+      <p class="small"><a href="#about"><span class="en">About</span><span class="te">మా గురించి</span></a> • <a href="#contact"><span class="en">Contact</span><span class="te">సంప్రదించండి</span></a></p>
+    </div>
+    <div>
+      <p class="small"><b><span class="en">Legal</span><span class="te">లీగల్</span></b></p>
+      <p class="small"><a href="#"><span class="en">Privacy</span><span class="te">ప్రైవసీ</span></a> • <a href="#"><span class="en">Terms</span><span class="te">నిబంధనలు</span></a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const navlinks = document.getElementById('navlinks');
+  burger.addEventListener('click', ()=>{
+    const open = navlinks.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true':'false');
+  });
+  const langBtn = document.getElementById('langBtn');
+  function setLang(te){
+    if(te){ document.body.classList.add('lang-te'); localStorage.setItem('modrones_lang','te'); }
+    else { document.body.classList.remove('lang-te'); localStorage.setItem('modrones_lang','en'); }
+  }
+  langBtn.addEventListener('click', ()=>{
+    const te = !document.body.classList.contains('lang-te');
+    setLang(te);
+  });
+  const saved = localStorage.getItem('modrones_lang');
+  if(saved === 'te'){ setLang(true); }
+  function sendMail(e){
+    e.preventDefault();
+    const name = encodeURIComponent(document.getElementById('name').value.trim());
+    const email = encodeURIComponent(document.getElementById('email').value.trim());
+    const msg = encodeURIComponent(document.getElementById('message').value.trim());
+    const subject = `${document.body.classList.contains('lang-te') ? 'MoDrones వెబ్‌సైట్ నుంచి విచారణ' : 'Inquiry via MoDrones website'} - ${name}`;
+    const body = `Name/పేరు: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${msg}`;
+    window.location.href = `mailto:shaik.moin@outlook.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+  }
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
